@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class MainApplications {
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        System.out.println(Arrays.toString(shiftingArray(arr, 2)));
+        int[][] arr = new int[5][5];
+        fillsDiagonals(arr);
     }
 
     public static void replaceNumber(int[] array) {
@@ -38,13 +38,11 @@ public class MainApplications {
     }
 
     public static void fillsDiagonals(int[][] array) {
-        for (int i = 0, j = 0; i < array.length; i++, j++) {
-            array[i][j] = 1;
+        for (int i = 0; i < array.length; i++) {
+            array[i][i] = 1;
+            array[i][array.length - i - 1] = 1;
         }
-
-        for (int i = 0, j = array.length - 1; i < array.length; i++, j--) {
-            array[i][j] = 1;
-        }
+        
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
                 System.out.print(array[i][j]);
