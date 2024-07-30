@@ -9,8 +9,8 @@ public class Gallows {
     }
 
     private static String[] returnsArrayWithWords() {
-        return new String[]{ "apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry",
-                "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear",
+        return new String[]{ "apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot",
+                "cherry", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear",
                 "pepper", "pineapple", "pumpkin", "potato" };
     }
 
@@ -20,11 +20,11 @@ public class Gallows {
 
     private static void gamePlay() {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Компьютер загадал случайное слово из этого перечня");
         String hiddenWord = makesUpAWord(returnsArrayWithWords());
         System.out.println(Arrays.toString(returnsArrayWithWords()));
         StringBuilder hint = new StringBuilder("***************");
+
         while (true) {
             System.out.println("Введите пожалуйста ваш вариант ответа: ");
             String result = scanner.next();
@@ -33,11 +33,13 @@ public class Gallows {
                 System.out.println("Ура вы победили!!!");
                 break;
             }
+
             for (int i = 0; i < wordLength; i++) {
                 if (hiddenWord.charAt(i) == result.charAt(i)) {
                     hint.setCharAt(i, hiddenWord.charAt(i));
                 }
             }
+
             System.out.println("Подсказка " + hint);
             System.out.println("Продолжайте!!!");
         }
